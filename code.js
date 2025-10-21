@@ -1,9 +1,11 @@
 const body = document.querySelector("body");
 const container = document.querySelector(".grid-container");
+const containerSize = 580;
 
-container.style["width"] = "480px";
-container.style["height"] = "480px";
 gridDefault();
+
+
+
 
 function gridDefault() {
     
@@ -13,10 +15,30 @@ function gridDefault() {
         let gridBox = document.createElement("div");
         gridBox.className = "grid-box";
 
-        gridBox.style["width"] = "30px";
-        gridBox.style["height"] = "30px";
+        gridBox.style["width"] = String(containerSize / 16) + "px";
+        gridBox.style["height"] = String(containerSize / 16) + "px";
+
 
         container.appendChild(gridBox);
     }
+}
+
+function gridWithChoice() {
+    let numberOfGrid = Number(prompt("How many grids? Choose from 1 - 100"));
+    let gridBoxes = numberOfGrid * numberOfGrid;
+
+    container.replaceChildren();
+    for (let i = 0; i < gridBoxes; i++) {
+
+        let gridBox = document.createElement("div");
+        gridBox.className = "grid-box";
+
+        gridBox.style["width"] = String(containerSize / numberOfGrid ) + "px";
+        gridBox.style["height"] = String(containerSize / numberOfGrid ) + "px";
+
+        container.appendChild(gridBox);
+    } 
+
+
 }
 
