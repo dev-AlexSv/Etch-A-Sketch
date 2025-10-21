@@ -25,6 +25,7 @@ body {
     display: flex;
     flex-direction: column;
     font-family: "Open Sans", sans-serif;
+    align-items: center;
 }
 
 /* '
@@ -32,13 +33,17 @@ body {
  */
 
 .grid-container {
-    border: 5px solid orange;
+    border: 2px solid orange;
+    justify-content: center;
     display: flex;
-    padding: 25px;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    align-content: flex-start;
+
 }
 
 .grid-box {
-    padding: 50px;
-    border: 2px solid black;
-    flex: 1;
+    flex-basis: auto;
+    box-sizing: border-box;
+    border: 1px solid black;
 }
