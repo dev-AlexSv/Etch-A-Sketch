@@ -21,6 +21,10 @@ function gridDefault() {
 
 function gridWithChoice() {
     let numberOfGrid = Number(prompt("How many grids? Choose from 1 - 100"));
+    if (isNaN(numberOfGrid) || numberOfGrid < 1 || numberOfGrid > 100) {
+        alert("Please enter a number between 1 and 100.");
+        return;
+    }
     let gridBoxes = numberOfGrid * numberOfGrid;
 
     container.replaceChildren();
@@ -71,12 +75,14 @@ function allColorsMode() {
 
 function blackAndWhiteMode(e) {
     const element = e;
-    if (element.style["background-color"] === "rgb(255, 255, 255)") {
-        element.style["background-color"] = "rgb(0, 0, 0)";
-        
-    } else {
+    if (element.classList.contains("black")) {
+        element.classList.remove("black");
         element.style["background-color"] = "#ffffff";
+    } else {
+        element.classList.add("black");
+        element.style["background-color"] = "#000000";
     }
+
 }
 
 // MAIN CODE
@@ -105,7 +111,7 @@ btReset.addEventListener("click", () => {
 
 btBWMode.addEventListener("click", () => {
     blackWhiteMode = true;
-    gridDefault();
+    gridWithChoice();
 })
 
 
