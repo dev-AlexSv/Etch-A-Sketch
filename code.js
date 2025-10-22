@@ -58,7 +58,6 @@ function hoverGridBoxBlackAndWhiteOnly() {
     elements.forEach(gridBox => {
         gridBox.addEventListener("mouseover", () => {
             gridBox.style["background-color"] = blackAndWhiteMode(gridBox);
-            console.log(gridBox.style["background-color"]);
         })
     })
 }
@@ -106,7 +105,7 @@ btReset.addEventListener("click", () => {
 
 btBWMode.addEventListener("click", () => {
     blackWhiteMode = true;
-    gridWithChoice();
+    gridDefault();
 })
 
 
